@@ -1,0 +1,6 @@
+numpy
+tqdm
+pandas
+requests
+scikit-learn
+kneed
