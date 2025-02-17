@@ -1,5 +1,6 @@
 import pandas as pd
 import json
+import requests
 
 from tqdm import tqdm
 from itertools import combinations
@@ -73,7 +74,7 @@ def longest_common_subsequence(s1: str, s2: str) -> int:
 
 def klink_exp(screened_co_occurrence_list, vocab):
     co_occurrence_matrix = np.zeros((len(vocab), len(vocab)))
-    word2id = word2id = {w: idx for idx, w in enumerate(vocab)}
+    word2id = {w: idx for idx, w in enumerate(vocab)}
     for words, weight in screened_co_occurrence_list:
         w1, w2 = words
         i, j = word2id[w1], word2id[w2]
@@ -106,18 +107,17 @@ def klink_exp(screened_co_occurrence_list, vocab):
 
     return y_hat_relation
 
+def get_prompt(w1, w2):
+    return f"Hypernymy and hyponymy are the semantic relations between a generic term (hypernym) and a more specific term (hyponym). Determine the hierarchical relationship between two words based on subject classification. Answer 1 if {w1} is the superordinate of {w2}, 0 if {w2} is the superordinate of {w1}, or -1 if there is no superordinate relationship between the two.Do not output any text other than 1, 0, and -1."
 
-import requests
-
-
-def relation_infer(w1, w2, prompt, model_name):
+def relation_infer(w1, w2, model_name):
     base_url = "http://ip"
     response = requests.post(f"{base_url}:11434/api/chat", json={
         "model": model_name,
         "messages": [
             {
                 "role": "user",
-                "content": prompt
+                "content": get_prompt(w1, w2)
             }
         ],
         "stream": False
@@ -134,11 +134,11 @@ def relation_infer(w1, w2, prompt, model_name):
         print(response.text)
 
 
-def LLM_exp(screened_co_occurrence_list, model_name, prompt):
+def LLM_exp(screened_co_occurrence_list, model_name):
     y_hat_relation = []
     loop = tqdm(screened_co_occurrence_list, desc=f'LLM-{model_name}')
     for w1, w2 in loop:
-        res = relation_infer(w1, w2, prompt, model_name)
+        res = relation_infer(w1, w2, model_name)
         if res == '1':
             y_hat_relation.append((w1, w2))
         elif res == '0':
