@@ -262,7 +262,7 @@ if __name__ == '__main__':
 
     model_name = "qwen2.5:72b"
     prompt = f"Hypernymy and hyponymy are the semantic relations between a generic term (hypernym) and a more specific term (hyponym). Determine the hierarchical relationship between two words based on subject classification. Answer 1 if {w1} is the superordinate of {w2}, 0 if {w2} is the superordinate of {w1}, or -1 if there is no superordinate relationship between the two.Do not output any text other than 1, 0, and -1."
-    y_hat_relation = LLM_exp([item[0] for item in screened_co_occurrence_list], model_name, prompt)
+    y_hat_relation = LLM_exp([item[0] for item in screened_co_occurrence_list], model_name)
     test(y_hat_relation, openalex_y_relation)
     test(y_hat_relation, cso_y_relation)
 
