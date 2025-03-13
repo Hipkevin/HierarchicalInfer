@@ -23,173 +23,21 @@
 ## Experiments
 Updated 03-13-25
 
-<div style="text-align: center;">
-<table style="margin: auto; text-align: center;">
-<tr style="font-weight: bold">
-<td rowspan="2" colspan="1">Phase</td>
-<td rowspan="2" colspan="2">Strategy</td>
-<td rowspan="1" colspan="3">OpenAlex</td>
-<td rowspan="1" colspan="3">CSO</td>
-</tr>
-<tr style="font-weight: bold">
-<td>P</td>
-<td>R</td>
-<td>F1</td>
-<td>P</td>
-<td>R</td>
-<td>F1</td>
-</tr>
-<tr>
-<td rowspan="3" colspan="1">Recall</td>
-<td>R.S1</td>
-<td>screen</td>
-<td>33.51%</td>
-<td>1.05%</td>
-<td>2.04%</td>
-<td>33.22%</td>
-<td>2.83%</td>
-<td>5.22% </td>
-</tr>
-<tr>
-<td>R.S2</td>
-<td>qw32b-cluster</td>
-<td>4.61%</td>
-<td>0.08%</td>
-<td>0.16%</td>
-<td>3.19%</td>
-<td>0.15%</td>
-<td>0.29% </td>
-</tr>
-<tr>
-<td>R.S3</td>
-<td>co-cluster</td>
-<td>2.58%</td>
-<td>0.05%</td>
-<td>0.09%</td>
-<td>2.29%</td>
-<td>0.12%</td>
-<td>0.22% </td>
-</tr>
-<tr>
-<td rowspan="12" colspan="1">Discrimination</td>
-<td>D.S1</td>
-<td>Subsumption</td>
-<td>4.05%</td>
-<td>2.36%</td>
-<td>2.99%</td>
-<td>3.45%</td>
-<td>5.44%</td>
-<td>4.22% </td>
-</tr>
-<tr>
-<td>D.S2</td>
-<td>Klink</td>
-<td>24.29%</td>
-<td>1.25%</td>
-<td>2.38%</td>
-<td>25.68%</td>
-<td>3.57%</td>
-<td>6.27% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>qwen2.5:7b</td>
-<td>20.65%</td>
-<td>2.72%</td>
-<td>4.80%</td>
-<td>17.72%</td>
-<td>6.29%</td>
-<td>9.28% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>qwen2.5:32b</td>
-<td>49.39%</td>
-<td>3.04%</td>
-<td>5.73%</td>
-<td>39.34%</td>
-<td>6.53%</td>
-<td>11.19% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>qwen2.5:72b</td>
-<td>51.42%</td>
-<td>3.10%</td>
-<td>5.85%</td>
-<td>42.49%</td>
-<td>6.91%</td>
-<td>11.88% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>llama3.2:3b</td>
-<td>45.75%</td>
-<td>0.48%</td>
-<td>0.96%</td>
-<td>48.50%</td>
-<td>1.38%</td>
-<td>2.69% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>llama3.1:70b</td>
-<td>31.98%</td>
-<td>2.08%</td>
-<td>3.90%</td>
-<td>24.77%</td>
-<td>4.34%</td>
-<td>7.39% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>deepseek-r1:7b</td>
-<td>25.51%</td>
-<td>0.49%</td>
-<td>0.97%</td>
-<td>27.18%</td>
-<td>1.41%</td>
-<td>2.69% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>glm4:9b</td>
-<td>43.72%</td>
-<td>0.82%</td>
-<td>1.61%</td>
-<td>40.69%</td>
-<td>2.06%</td>
-<td>3.92% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>llama3.3:70b</td>
-<td>55.06%</td>
-<td>1.21%</td>
-<td>2.37%</td>
-<td>50.00%</td>
-<td>2.97%</td>
-<td>5.61% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>deepseek-r1:32b</td>
-<td>64.78%</td>
-<td>2.05%</td>
-<td>3.98%</td>
-<td>52.55%</td>
-<td>4.49%</td>
-<td>8.28% </td>
-</tr>
-<tr>
-<td>D.S3</td>
-<td>deepseek-r1:70b</td>
-<td>62.35%</td>
-<td>1.80%</td>
-<td>3.51%</td>
-<td>53.75%</td>
-<td>4.20%</td>
-<td>7.78% </td>
-</tr>
-</table>
-</div>
+|   **Phase**    | **Strategy** |                     | **OpenAlex** |           |           |  **CSO**   |           |            |
+|:--------------:|:------------:|:-------------------:|:------------:|:---------:|:---------:|:----------:|:---------:|:----------:|
+|                |              |                     |      P       |     R     |    F1     |     P      |     R     |     F1     |
+|     Recall     |     R.S1     |       screen        |    33.51%    |   1.05%   |   2.04%   |   33.22%   |   2.83%   |   5.22%    |
+|                |     R.S2     |    qw32b-cluster    |    4.61%     |   0.08%   |   0.16%   |   3.19%    |   0.15%   |   0.29%    |
+|                |     R.S3     |     co-cluster      |    2.58%     |   0.05%   |   0.09%   |   2.29%    |   0.12%   |   0.22%    |
+| Discrimination |     D.S1     |     Subsumption     |    4.05%     |   2.36%   |   2.99%   |   3.45%    |   5.44%   |   4.22%    |
+|                |     D.S2     |        Klink        |    24.29%    |   1.25%   |   2.38%   |   25.68%   |   3.57%   |   6.27%    |
+|                |     D.S3     |     qwen2.5:7b      |    20.65%    |   2.72%   |   4.80%   |   17.72%   |   6.29%   |   9.28%    |
+|                |     D.S3     |   **qwen2.5:32b**   |    49.39%    |   3.04%   |   5.73%   |   39.34%   |   6.53%   |   11.19%   |
+|                |     D.S3     |   **qwen2.5:72b**   |    51.42%    | **3.10%** | **5.85%** |   42.49%   | **6.91%** | **11.88%** |
+|                |     D.S3     |     llama3.2:3b     |    45.75%    |   0.48%   |   0.96%   |   48.50%   |   1.38%   |   2.69%    |
+|                |     D.S3     |    llama3.1:70b     |    31.98%    |   2.08%   |   3.90%   |   24.77%   |   4.34%   |   7.39%    |
+|                |     D.S3     |   deepseek-r1:7b    |    25.51%    |   0.49%   |   0.97%   |   27.18%   |   1.41%   |   2.69%    |
+|                |     D.S3     |       glm4:9b       |    43.72%    |   0.82%   |   1.61%   |   40.69%   |   2.06%   |   3.92%    |
+|                |     D.S3     |    llama3.3:70b     |    55.06%    |   1.21%   |   2.37%   |   50.00%   |   2.97%   |   5.61%    |
+|                |     D.S3     | **deepseek-r1:32b** |  **64.78%**  |   2.05%   |   3.98%   |   52.55%   |   4.49%   |   8.28%    |
+|                |     D.S3     | **deepseek-r1:70b** |    62.35%    |   1.80%   |   3.51%   | **53.75%** |   4.20%   |   7.78%    |
